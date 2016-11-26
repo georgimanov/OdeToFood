@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using OdeToFood.Services;
+using Microsoft.AspNetCore.Routing;
+using System;
 
 namespace OdeToFood
 {
@@ -45,14 +47,20 @@ namespace OdeToFood
                 app.UseDeveloperExceptionPage();
             }
                 
-            app.UseMvcWithDefaultRoute();
             app.UseFileServer();
+
+            app.UseMvc(ConfigureRoutes);
 
             app.Run(async (context) =>
             {
                 var greeting = greeter.GetGreeting();
                 await context.Response.WriteAsync(greeting);
             });
+        }
+
+        private void ConfigureRoutes(IRouteBuilder routeBuilder)
+        {
+            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }
