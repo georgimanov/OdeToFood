@@ -1,10 +1,12 @@
 ﻿namespace OdeToFood.Controllers
 {
-    public class HomeController
+    using Microsoft.AspNetCore.Mvc;
+
+    public class HomeController : Controller
     {
-        public string Index()
+        public IActionResult Index()
         {
-            return $"Hi, from {nameof(HomeController)}";
+            return Content($"Hi, from {nameof(HomeController)}");
         }
     }
 }
