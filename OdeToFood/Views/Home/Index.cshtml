@@ -11,8 +11,13 @@
 </h1>
 <hr/>
 
+@foreach (var restaurant in Model.Restaurants)
+{
+    @Html.Partial("_Summary", restaurant);
+}
+
 <a asp-action="Create">Add new restaurant</a>
-<table>
+@*<table>
     <thead>
     <tr>
         <th>Id</th>
@@ -34,7 +39,7 @@
             </td>
         </tr>
     }
-</table>
+</table>*@
 
 @section footer{ 
     @Model.CurrentMessage
