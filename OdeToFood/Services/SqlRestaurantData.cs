@@ -1,5 +1,6 @@
 ﻿namespace OdeToFood.Services
 {
+    using Microsoft.EntityFrameworkCore;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -29,6 +30,13 @@
         {
             _context.Restaurants.Add(restaurant);
             _context.SaveChanges();
+
+            return restaurant;
+        }
+
+        public Restaurant Update(Restaurant restaurant)
+        {
+            _context.Attach(restaurant).State = EntityState.Modified;
 
             return restaurant;
         }
