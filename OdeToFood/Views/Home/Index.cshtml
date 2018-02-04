@@ -2,15 +2,23 @@
 
 <h1>@Model.CurrentMessage</h1>
 
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>
+    All restaurants
+</h1>
+<hr/>
 
 <a asp-action="Create">Add new restaurant</a>
 <table>
     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Details</th>
-        </tr>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Details</th>
+    </tr>
     </thead>
     @foreach (var restaurant in Model.Restaurants)
     {
@@ -27,4 +35,8 @@
         </tr>
     }
 </table>
+
+@section footer{ 
+    @Model.CurrentMessage
+}
 
