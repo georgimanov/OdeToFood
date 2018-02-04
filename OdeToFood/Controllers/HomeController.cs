@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
 
+    using OdeToFood.Models;
     using OdeToFood.Services;
     using OdeToFood.ViewModels;
 
@@ -36,6 +37,26 @@
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(RestaurantEditModel model)
+        {
+            var restaurant = new Restaurant
+            {
+                Name = model.Name,
+                Cuisine = model.Cuisine
+            };
+
+            restaurant = _restaurantData.Add(restaurant);
+
+            return View(nameof(Details), restaurant);
         }
     }
 }
