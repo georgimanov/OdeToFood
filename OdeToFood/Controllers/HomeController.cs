@@ -14,7 +14,7 @@
                 Name = "GM's"
             };
 
-            return new ObjectResult(model);
+            return View(model);
         }
     }
 }
