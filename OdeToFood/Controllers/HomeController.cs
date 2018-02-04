@@ -56,7 +56,7 @@
 
             restaurant = _restaurantData.Add(restaurant);
 
-            return View(nameof(Details), restaurant);
+            return RedirectToAction(nameof(Details), new { id = restaurant.Id });
         }
     }
 }
