@@ -2,11 +2,19 @@
 {
     using Microsoft.AspNetCore.Mvc;
 
+    using OdeToFood.Models;
+
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
-            return Content($"Hi, from {nameof(HomeController)}");
+            var model = new Restaurant
+            {
+                Id = 1,
+                Name = "GM's"
+            };
+
+            return new ObjectResult(model);
         }
     }
 }
