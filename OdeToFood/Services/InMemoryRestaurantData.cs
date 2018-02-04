@@ -28,5 +28,13 @@
         {
             return _restaurants.FirstOrDefault(r => r.Id == id);
         }
+
+        public Restaurant Add(Restaurant restaurant)
+        {
+            restaurant.Id = _restaurants.Max(r => r.Id);
+            _restaurants.Add(restaurant);
+
+            return restaurant;
+        }
     }
 }
