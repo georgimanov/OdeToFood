@@ -7,7 +7,6 @@
     using OdeToFood.Services;
     using OdeToFood.ViewModels;
 
-    [Authorize]
     public class HomeController : Controller
     {
         private readonly IRestaurantData _restaurantData;
@@ -19,7 +18,6 @@
             _greeter = greeter;
         }
 
-        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new HomeIndexViewModel
