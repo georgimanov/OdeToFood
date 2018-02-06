@@ -1,5 +1,7 @@
 ﻿namespace OdeToFood
 {
+    using System.IO;
+
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
 
@@ -12,6 +14,7 @@
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .Build();
     }
