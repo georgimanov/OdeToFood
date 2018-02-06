@@ -53,7 +53,7 @@
             {
                 app.UseDeveloperExceptionPage();
             }
-
+             
             app.UseRewriter(new RewriteOptions().AddRedirectToHttpsPermanent());
 
             app.UseStaticFiles();
