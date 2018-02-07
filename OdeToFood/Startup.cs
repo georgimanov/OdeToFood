@@ -53,7 +53,8 @@
             {
                 app.UseDeveloperExceptionPage();
             }
-             
+
+            app.UseMiddleware<LoggingMiddleware>();
             app.UseRewriter(new RewriteOptions().AddRedirectToHttpsPermanent());
 
             app.UseStaticFiles();
