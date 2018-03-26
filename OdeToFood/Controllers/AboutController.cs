@@ -1,5 +1,7 @@
 ﻿namespace OdeToFood.Controllers
 {
+    using OdeToFood.ActionConstraints;
+
     public class AboutController
     {
         public string Phone()
@@ -10,6 +12,12 @@
         public string Address()
         {
             return "Sofia/Bulgaria";
+        }
+
+        [IsMobile]
+        public string Contacts()
+        {
+            return "Mobile: Sofia/Bulgaria";
         }
     }
 }
